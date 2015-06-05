@@ -10,9 +10,39 @@
 				timer
 				<p id="credit container" title="">
 					&nbspby&nbsp
-					<a id="credit link" href="http://willeccles.github.io" title=";)">Will Eccles</a>
+					<a id="credit link" href="http://willeccles.github.io" title="(opens in a new window/tab)" target="_blank">Will Eccles</a>
 				</p>
 			</div>
 		</span>
+		<div class="content">
+			<!-- time setting display (like a calculator almost) -->
+			<div class="time-set">
+				<div class="time-set-display">
+					<!-- time amount goes here, see JS -->
+				</div>
+				<table>
+					<tr>
+						<td><a class="time-set-a" onclick="timeAdd(1)">1</a></td>
+						<td><a class="time-set-a" onclick="timeAdd(2)">2</a></td>
+						<td><a class="time-set-a" onclick="timeAdd(3)">3</a></td>
+					</tr>
+					<tr>
+						<td><a class="time-set-a" onclick="timeAdd(4)">4</a></td>
+						<td><a class="time-set-a" onclick="timeAdd(5)">5</a></td>
+						<td><a class="time-set-a" onclick="timeAdd(6)">6</a></td>
+					</tr>
+					<tr>
+						<td><a class="time-set-a" onclick="timeAdd(7)">7</a></td>
+						<td><a class="time-set-a" onclick="timeAdd(8)">8</a></td>
+						<td><a class="time-set-a" onclick="timeAdd(9)">9</a></td>
+					</tr>
+					<tr>
+						<td><a class="time-set-a del" onclick="timeDel()">Delete</a></td>
+						<td><a class="time-set-a" onclick="timeAdd(0)">0</a></td>
+						<td><a class="time-set-a go" onclick="timego()">Go!</a></td>
+					</tr>
+				</table>
+			</div>
+		</div>
 	</body>
 </html>

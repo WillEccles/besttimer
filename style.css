@@ -2,10 +2,17 @@
 
 html, body {
 	background-color: black;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
 }
 
 body {
 	margin: 0;
+	height: 100%;
+	margin: 0;
+	padding: 0;
 }
 
 .header-bar {
@@ -39,6 +46,7 @@ body {
 
 .header-logo p a {
 	text-decoration: none;
+	color: gray;
 }
 
 .header-logo p a:hover {
@@ -48,4 +56,101 @@ body {
 .header-logo p a:visited {
 	color: gray;
 	text-decoration: none;
+}
+
+.content {
+	position: fixed;
+	display: block;
+	width: 100%;
+	height: Calc(100% - 50px);
+	margin: 0;
+	padding: 0;
+}
+
+.time-set {
+	display: block;
+	margin-top: 75px;
+	width: 300px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0;
+}
+
+.time-set table {
+	display: table;
+	width: 100%;
+	border: none;
+	margin: 0;
+	padding: 0;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.time-set-display {
+	width: 298px;
+	padding: 0;
+	height: 50px;
+	border: 1px solid yellow;
+	margin: 0;
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.time-set table tr {
+	margin: 0;
+	padding: 0;
+}
+
+.time-set table td {
+	margin: 0;
+	border: 1px solid yellow;
+	padding: 0;
+	height: 40px;
+	width: 100px;
+	text-align: center;
+}
+
+.time-set-a {
+	font-family: "Roboto", sans-serif;
+	font-weight: 400;
+	font-size: 150%;
+	color: white;
+	cursor: pointer;
+	display: block;
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	line-height: 40px;
+	-webkit-transition: background-color .3s ease-in-out, box-shadow .2s ease-in-out;
+    -moz-transition: background-color .3s ease-in-out, box-shadow .2s ease-in-out;
+    -o-transition: background-color .3s ease-in-out, box-shadow .2s ease-in-out;
+    transition: background-color .3s ease-in-out, box-shadow .2s ease-in-out;
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.time-set-a:hover {
+	background-color: #333333;
+	box-shadow: inset 0px 0px 0px 4px black;
+}
+
+.time-set-a.del {
+	color: #d54444;
+}
+.time-set-a.del:hover {
+	background-color: #5f1e1e;
+}
+
+.time-set-a.go {
+	color: springgreen;
+}
+.time-set-a.go:hover {
+	background-color: #008F47;
 }
