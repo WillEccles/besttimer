@@ -78,7 +78,7 @@ body {
 
 .time-set table {
 	display: table;
-	width: 100%;
+	width: 300px;
 	border: none;
 	margin: 0;
 	padding: 0;
@@ -98,11 +98,19 @@ body {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+	color: white;
+	font-family: "Roboto", sans-serif;
+	font-size: 250%;
+	font-weight: 200;
+	text-align: center;
+	display: table-cell;
+	vertical-align: middle;
 }
 
 .time-set table tr {
 	margin: 0;
 	padding: 0;
+	width: 300px;
 }
 
 .time-set table td {
@@ -116,7 +124,7 @@ body {
 
 .time-set-a {
 	font-family: "Roboto", sans-serif;
-	font-weight: 400;
+	font-weight: 200;
 	font-size: 150%;
 	color: white;
 	cursor: pointer;
