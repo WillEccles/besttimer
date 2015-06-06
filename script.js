@@ -7,9 +7,14 @@ var timeSplit;
 var display = document.getElementById("display");
 var timeSet = document.getElementById("timeset");
 
+// for moving the whole thing
+var timerBox = document.getElementById("timer-container");
+// for just messing with the numbers
+var timer = document.getElementById("timer");
+
 // do stuff when the page loads
 window.onload = function() {
-	timeSet.className += " fall-in";
+	//timeSet.className += " fall-in";
 };
 
 // add [amount] to the time in the time setting window
@@ -82,4 +87,38 @@ function clearTime() {
 	}, 300);
 	
 	display.innerHTML = timeDisplay;
+}
+
+// start the timer, assuming the time has been set
+function timego() {
+	// if the time has not been set or has been cleared
+	if (timeString == "") {
+		display.className = "time-set-display flashred";
+		
+		setTimeout(function() {
+			display.className = "time-set-display";
+		}, 300);
+	}
+	// start the timer
+	else {
+		startTimer();
+	}
+}
+
+// starts the timer, and does all of the logic to update the display, etc.
+function startTimer() {
+	// get rid of the time setting window
+	// this is not the window you are looking for
+	timeSet.className = "timeset lift-out";
+	setTimeout(function() {
+		timeSet.className = "timeset disabled";
+	}, 700);
+	
+	// now we will show the timer display and start that up
+	
+	// first of all, we need to show the timer display:
+	timerBox.className = "timer-container fall-in";
+	setTimeout(function() {
+		
+	}, 700);
 }
