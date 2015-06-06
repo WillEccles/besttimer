@@ -74,6 +74,20 @@ body {
 	margin-left: auto;
 	margin-right: auto;
 	padding: 0;
+	transform: scale(2, 2);
+	opacity: 0;
+	-webkit-transition: transform .6s ease-in-out, opacity .7s ease-in-out;
+    -moz-transition: transform .6s ease-in-out, opacity .7s ease-in-out;
+    -o-transition: transform .6s ease-in-out, opacity .7s ease-in-out;
+    transition: transform .6s ease-in-out, opacity .7s ease-in-out;
+}
+.fall-in {
+	transform: scale(1, 1);
+	opacity: 1;
+}
+.lift-out {
+	transform: scale(2, 2);
+	opacity: 0;
 }
 
 .time-set table {
@@ -105,6 +119,20 @@ body {
 	text-align: center;
 	display: table-cell;
 	vertical-align: middle;
+	-webkit-transition: background-color .2s ease-in-out, box-shadow .1s ease-in-out;
+    -moz-transition: background-color .2s ease-in-out, box-shadow .1s ease-in-out;
+    -o-transition: background-color .2s ease-in-out, box-shadow .1s ease-in-out;
+    transition: background-color .2s ease-in-out, box-shadow .1s ease-in-out;
+}
+.flashred {
+	/* used in JS to flash the box red if time is set but a number is added */
+	background-color: #d54444;
+	box-shadow: inset 0px 0px 0px 4px black;
+}
+.flashwhite {
+	/* used in JS to flash the box white when clearing the time */
+	background-color: white;
+	box-shadow: inset 0px 0px 0px 4px black;
 }
 
 .time-set table tr {
