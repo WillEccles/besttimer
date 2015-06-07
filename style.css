@@ -223,16 +223,19 @@ body {
 	font-size: 1200%;
 	font-weight: 100;
 	margin-top: 75px;
-	
+}
+
+/* this shouldn't have to exist, but things were being stupid */
+.timer-container {
 	transform: scale(0, 0);
 	-webkit-transform: scale(0, 0);
 	-moz-transform: scale(0, 0);
 	-ms-transform: scale(0, 0);
-	opacity: 0;
+	opacity: 0;	
 	
 	/* I will be using the same fall-in and lift-out classes as above, see them for more info */
-	-webkit-transition: transform .6s ease-in-out, opacity .7s ease-in-out;
-    -moz-transition: transform .6s ease-in-out, opacity .7s ease-in-out;
-    -o-transition: transform .6s ease-in-out, opacity .7s ease-in-out;
-    transition: transform .6s ease-in-out, opacity .7s ease-in-out;
+	-webkit-transition: transform .6s ease-in-out, opacity .7s ease-in-out !important;
+    -moz-transition: transform .6s ease-in-out, opacity .7s ease-in-out !important;
+    -o-transition: transform .6s ease-in-out, opacity .7s ease-in-out !important;
+    transition: transform .6s ease-in-out, opacity .7s ease-in-out !important;
 }
