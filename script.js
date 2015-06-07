@@ -7,14 +7,13 @@ var timeSplit;
 var display = document.getElementById("display");
 var timeSet = document.getElementById("timeset");
 
-// for moving the whole thing
-var timerBox = document.getElementById("timer-container");
 // for just messing with the numbers
 var timer = document.getElementById("timer");
 
 // do stuff when the page loads
 window.onload = function() {
-	//timeSet.className += " fall-in";
+	timeSet.className += " fall-in";
+	timer.className += " disabled";
 };
 
 // add [amount] to the time in the time setting window
@@ -59,20 +58,6 @@ function timeAdd(amount) {
 	);
 	
 	display.innerHTML = timeDisplay;
-	
-	/*
-	// set the timeString to be what it should be (without the leading 0's)
-	var significant = false;
-	for (var thing in newTimeParts) {
-		if (significant == false) {
-			if (thing != "0") {
-				significant = true;
-			}
-		}
-		else {
-			timeString += thing;
-		}
-	}*/
 }
 
 // clear the time in the time setting window
@@ -108,17 +93,129 @@ function timego() {
 // starts the timer, and does all of the logic to update the display, etc.
 function startTimer() {
 	// get rid of the time setting window
-	// this is not the window you are looking for
-	timeSet.className = "timeset lift-out";
+	// "this is not the window you are looking for" - Obi Wan, Star Wars Episode VI
+	timeSet.className = "time-set lift-out";
 	setTimeout(function() {
-		timeSet.className = "timeset disabled";
+		timeSet.className = "time-set disabled";
 	}, 700);
 	
 	// now we will show the timer display and start that up
 	
-	// first of all, we need to show the timer display:
-	timerBox.className = "timer-container fall-in";
+	// first of all, we need to show the timer display.
+	// start by setting time, so that it has the right number when it falls in
+	
+	// indirectly mess with timeString
+	var newTime = timeString;
+	// # of 0's to add
+	var zeroes = 6-(timeString.split("").length);
+	// add the zeroes
+	if (zeroes > 0) {
+		for (var i = 0; i < zeroes; i++) {
+			newTime = "0" + newTime;
+		}
+	}
+	
+	var newTimeParts = newTime.split("");
+	// set the timeDisplay string
+	timeDisplay = (
+		newTimeParts[0] +
+		newTimeParts[1] +
+		":" +
+		newTimeParts[2] +
+		newTimeParts[3] +
+		":" +
+		newTimeParts[4] +
+		newTimeParts[5]
+	);
+	
+	// finally, set the timer display
+	timer.innerHTML = timeDisplay;
+	// now show the timer
+	timer.className = "timer";
+	timer.className += " lift-in";
 	setTimeout(function() {
-		
+		// this should happen after the .7s transitions
+		timerCountdown();
 	}, 700);
+}
+
+// make the timer actually count down
+function timerCountdown() {
+	var time = timeString;
+	// # of 0's to add
+	var zeroes = 6-(timeString.split("").length);
+	// add the zeroes
+	if (zeroes > 0) {
+		for (var i = 0; i < zeroes; i++) {
+			time = "0" + time;
+		}
+	}
+	
+	var t = time.split("");
+	var l = t.length;
+	
+	// seconds, mins, hours
+	var s = parseInt((t[l-1] + t[l-2]).replace("0", ""));
+	var m = parseInt((t[l-3] + t[l-4]).replace("0", ""));
+	var h = parseInt((t[l-5] + t[l-6]).replace("0", ""));
+	
+	console.log(s + ", " + m + ", " + h);
+	
+	// seconds of total time to count down
+	var finalTime = s + (m*60) + (h*3600);
+	
+	// now count down, setting the timer display as we go
+	var countDown = setInterval(function() {
+		console.info("Got here with " + finalTime + "s left.");
+		
+		// seconds remaining
+		var remainingTime = finalTime;
+		
+		// if there is no time remaining
+		if (remainingTime == 0) {
+			// stop this timer
+			clearInterval(countDown);
+			// set the 00:00:00 on the display
+			timeDisplay = "00:00:00";
+			timer.innerHTML = timeDisplay;
+		}
+		// if there is time left
+		else {
+			// seconds, mins, hours left
+			var sLeft = 0, mLeft = 0, hLeft = 0;
+			// set the hours left
+			if (remainingTime/3600 >= 1) {
+				hLeft = Math.floor(remainingTime/3600);
+				console.info("hLeft = " + hLeft);
+				// leave only minutes/seconds remaining
+				remainingTime -= hLeft*3600;
+			}
+			// set minutes left
+			if (remainingTime/60 >= 1) {
+				mLeft = Math.floor(remainingTime/60);
+				console.info("mLeft = " + mLeft);
+				// leave only seconds
+				remainingTime -= mLeft*60;
+			}
+			// set seconds left
+			if (remainingTime >= 1) {
+				sLeft = remainingTime;
+				console.info("sLeft = " + sLeft);
+			}
+			
+			// update the timer display
+			timeDisplay = 
+				((hLeft<=9)?"0"+hLeft.toString():hLeft.toString()) +
+				":" +
+				((mLeft<=9)?"0"+mLeft.toString():mLeft.toString()) +
+				":" +
+				((sLeft<=9)?"0"+sLeft.toString():sLeft.toString());
+			
+			timer.innerHTML = timeDisplay;
+			
+			// one less second remaining
+			finalTime--;
+		}
+		
+	}, 1000 /* do this every second */ );
 }
