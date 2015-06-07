@@ -164,14 +164,6 @@ function timerCountdown() {
 	var t = time.split("");
 	var l = t.length;
 	
-	console.log(timeString);
-	
-	console.log("l = " + l);
-	
-	for (var i = 0; i < l; i++) {
-		console.log(i + ". " + t[i]);
-	}
-	
 	// seconds, mins, hours
 	var s = parseInt((t[l-2] + t[l-1]));
 	var m = parseInt((t[l-4] + t[l-3]));
@@ -195,6 +187,14 @@ function timerCountdown() {
 			// set the 00:00:00 on the display
 			timeDisplay = "00:00:00";
 			timer.innerHTML = timeDisplay;
+			
+			document.getElementById("buttonBox").className += " lift-in";
+			
+			console.log("So long, and thanks for all the fish!");
+			// play a sound, waiting for the button's press to end it
+			var EndSound = new Audio("alarm.mp3");
+			EndSound.loop = true;
+			EndSound.play();
 		}
 		// if there is time left
 		else {
