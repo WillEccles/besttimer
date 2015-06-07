@@ -21,10 +21,19 @@ window.onload = function() {
 // ex. 00:00:00 + 1 = 00:00:01
 //     00:00:50 + 0 = 00:05:00
 function timeAdd(amount) {
-	// if the time is still not full
-	if (!new RegExp("^[0-9]{6,6}$").test(timeString)) {
+	// if time is empty and they try to add a 0
+	if (timeString == "" && amount.toString() == "0") {
+		display.className = "time-set-display flashred";
+		
+		setTimeout(function() {
+			display.className = "time-set-display";
+		}, 300);
+	}
+	// if the time is not full
+	else if (!new RegExp("^[0-9]{6,6}$").test(timeString)) {
 		timeString = timeString + amount.toString();
 	}
+	// if the time is full
 	else {
 		display.className = "time-set-display flashred";
 		
