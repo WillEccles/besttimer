@@ -143,10 +143,8 @@ function startTimer() {
 	// now show the timer
 	timerBox.className = "timer-container";
 	timerBox.className += " lift-in";
-	//setTimeout(function() {
-		// this should happen after the .7s transitions
-		timerCountdown();
-	//}, 700);
+	document.getElementById("buttonBox2").className += " lift-in";
+	timerCountdown();
 }
 
 // make the timer actually count down
@@ -188,6 +186,8 @@ function timerCountdown() {
 			timeDisplay = "00:00:00";
 			timer.innerHTML = timeDisplay;
 			
+			document.getElementById("buttonBox2").className = "buttonBox2";
+			document.getElementById("buttonBox2").className += " lift-out";
 			document.getElementById("buttonBox").className += " lift-in";
 			
 			console.log("So long, and thanks for all the fish!");

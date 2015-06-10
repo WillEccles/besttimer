@@ -277,6 +277,31 @@ body {
     user-select: none;
 }
 
+.buttonBox2 {
+	width: 100%;
+	text-align: center;
+	display: block;
+	
+	transform: scale(0, 0);
+	-webkit-transform: scale(0, 0);
+	-moz-transform: scale(0, 0);
+	-ms-transform: scale(0, 0);
+	opacity: 0;
+	
+	/* I will be using the same fall-in and lift-out classes as above, see them for more info */
+	-webkit-transition: transform .3s ease-in-out, opacity .4s ease-in-out !important;
+    -moz-transition: transform .3s ease-in-out, opacity .4s ease-in-out !important;
+    -o-transition: transform .3s ease-in-out, opacity .4s ease-in-out !important;
+    transition: transform .3s ease-in-out, opacity .4s ease-in-out !important;
+	
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
 .doneButton {
 	color: yellow;
 	font-size: 300%;
@@ -292,5 +317,18 @@ body {
 }
 
 .doneButton:hover {
+	opacity: .6;
+}
+
+.stopButton {
+	color: #d54444;
+	font-size: 300%;
+	font-family: "Roboto", sans-serif;
+	font-weight: 200;
+	
+	cursor: pointer;
+}
+
+.stopButton:hover {
 	opacity: .6;
 }
